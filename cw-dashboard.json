@@ -18,7 +18,7 @@
           "period": 300,
           "stat": "Average",
           "region": "${var.aws_region}",
-          "title": "comhuapc-${local.env_name[lower(var.app_env)]}-CPU Utilization"
+          "title": "ec2-CPU Utilization"
         }
       },
       {
