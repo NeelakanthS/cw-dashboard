@@ -1,0 +1,80 @@
+{
+    "widgets": [
+      {
+        "type": "metric",
+        "x": 0,
+        "y": 0,
+        "width": 12,
+        "height": 6,
+        "properties": {
+          "metrics": [
+            [
+              "AWS/EC2",
+              "CPUUtilization",
+              "InstanceId",
+              "${var.app_group}-${lower(var.app_env)}"
+            ]
+          ],
+          "period": 300,
+          "stat": "Average",
+          "region": "${var.aws_region}",
+          "title": "comhuapc-${local.env_name[lower(var.app_env)]}-CPU Utilization"
+        }
+      },
+      {
+        "type": "text",
+        "x": 0,
+        "y": 7,
+        "width": 3,
+        "height": 3,
+        "properties": {
+          "markdown": "dashboard_name = \"${var.app_group}-${lower(var.app_env)}-dashboard\""
+        }
+      },
+      {
+        "type": "metric",
+        "x": 0,
+        "y": 17,
+        "width": 12,
+        "height": 6,
+        "properties": {
+          "metrics": [
+            [
+              "CWAgent",
+              "mem_used_percent",
+              "InstanceId",
+              "${var.app_group}-${lower(var.app_env)}"
+            ]
+          ],
+          "period": 300,
+          "stat": "Average",
+          "region": "${var.aws_region}",
+          "title": "${var.app_group}-${lower(var.app_env)}- Memory Utilization"
+        }
+      },
+      {
+        "type": "metric",
+        "x": 0,
+        "y": 24,
+        "width": 12,
+        "height": 6,
+        "properties": {
+          "metrics": [
+            [
+              "CWAgent",
+              "disk_used_percent",
+              "InstanceId",
+              "${var.app_group}-${lower(var.app_env)}",
+              "mount_path",
+              "/"
+            ]
+          ],
+          "period": 300,
+          "stat": "Average",
+          "region": "${var.aws_region}",
+          "title": "${var.app_group}-${lower(var.app_env)}- Disk Utilization"
+        }
+      }
+    ]
+  }
+  
